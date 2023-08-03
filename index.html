@@ -11,27 +11,8 @@
 <body>
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude:19.1728315495768; longitude: 73.02260291573931" scale="1 1 1" position="0 -10 0" clickhandler></a-entity>
-    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude: 19.172699810980035; longitude: 73.02243661878039" scale="1 1 1" position="0 0 0" clickhandler></a-entity>
-    <a-entity id="redCube" geometry="primitive: box; width: 0.1; height: 0.1; depth: 0.1;" material="color: red;"></a-entity>
+    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude:19.1728315495768; longitude: 73.02260291573931" scale="1 1 1" position="0 -10 0" ></a-entity>
+    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude: 19.172699810980035; longitude: 73.02243661878039" scale="1 1 1" position="0 0 0" ></a-entity>
 </a-scene>
-    <script>
-    AFRAME.registerComponent("clickhandler", {
-     init: function () {
-        var el = this.el;
-        var scene = document.querySelector("a-scene");
-
-        el.addEventListener("click", function () {
-          // Get the position of the clicked model
-          var position = el.getAttribute("position");
-          // Clone the red cube entity and set its position
-          var redCube = document.querySelector("#redCube").cloneNode(true);
-          redCube.setAttribute("position", position);
-          // Append the red cube to the scene
-          scene.appendChild(redCube);
-        });
-      },
-    });
-    </script>
 </body>
 </html>
