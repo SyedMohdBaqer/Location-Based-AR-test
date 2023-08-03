@@ -17,13 +17,20 @@
 </a-scene>
     <script>
     AFRAME.registerComponent("clickhandler", {
-      init: function () {
+     init: function () {
         var el = this.el;
+        var scene = document.querySelector("a-scene");
+
         el.addEventListener("click", function () {
-          console.log("Model clicked!");
+          // Get the position of the clicked model
+          var position = el.getAttribute("position");
+          // Clone the red cube entity and set its position
+          var redCube = document.querySelector("#redCube").cloneNode(true);
+          redCube.setAttribute("position", position);
+          // Append the red cube to the scene
+          scene.appendChild(redCube);
         });
       },
     });
-  </script>
 </body>
 </html>
