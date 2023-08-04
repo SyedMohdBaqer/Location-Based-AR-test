@@ -5,40 +5,32 @@
 <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
 <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js'></script>
-         <script>
-    AFRAME.registerComponent("clickhandler", {
-      init: function () {
-        var el = this.el;
-        var intersectedElement;
+ <script>
+        AFRAME.registerComponent('boxgenerator',{
+            init : function() {
+                let el = this.el;
+                el.addEventListener('click', function() {
+                    let scene =  document.querySelector("#scene");
+                    let boxBaru = document.createElement("a-box");
+                    
+                    let temp = Math.random() * 2- 1;
+                    boxBaru.setAttribute('position',`${temp} 2 -3`);
+                    boxBaru.setAttribute('color','red');
+                    boxBaru.setAttribute('scale','0.2 0.2 0.2');
+                    boxBaru.setAttribute('dynamic-body','shape:box');
 
-        el.addEventListener("raycaster-intersection", function (event) {
-          // Get the first intersected element
-          intersectedElement = event.detail.els[0];
-        });
+                    scene.appendChild(boxBaru);
 
-        el.addEventListener("raycaster-intersection-cleared", function () {
-          // Clear the intersected element when no longer intersected
-          intersectedElement = null;
+                });
+            }
         });
-
-        el.addEventListener("touchend", function () {
-          if (intersectedElement) {
-            // Perform actions when the model is clicked (touched)
-            console.log("Model clicked!");
-            // You can perform additional actions here
-            // For example, show a pop-up, spawn objects, etc.
-            intersectedElement.setAttribute("visible", false);
-          }
-        });
-      },
-    });
-  </script>
+    </script>
 </head>
 <body>
-<a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
+<a-scene id = "scene" vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude:19.1728315495768; longitude: 73.02260291573931" scale="1 1 1" position="0 -10 0" raycaster="objects: .interactable" clickhandler ></a-entity>
-    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude: 19.172699810980035; longitude: 73.02243661878039" scale="1 1 1" position="0 0 0" raycaster="objects: .interactable" clickhandler ></a-entity>
+    <a-entity boxgenerator gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude:19.1728315495768; longitude: 73.02260291573931" scale="1 1 1" position="0 -10 0" raycaster="objects: .interactable" clickhandler ></a-entity>
+    <a-entity boxgenerator gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude: 19.172699810980035; longitude: 73.02243661878039" scale="1 1 1" position="0 0 0" raycaster="objects: .interactable" clickhandler ></a-entity>
 </a-scene>
 </body>
 </html>
