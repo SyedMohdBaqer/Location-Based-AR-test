@@ -9,9 +9,36 @@
 <body>
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='gpsMinDistance: 5'></a-camera>
-    <a-cursor></a-cursor>
-    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude:19.1728315495768; longitude: 73.02260291573931" scale="1 1 1" position="0 -10 0" ></a-entity>
-    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude: 19.172699810980035; longitude: 73.02243661878039" scale="1 1 1" position="0 0 0" ></a-entity>
+    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude:19.1728315495768; longitude: 73.02260291573931" scale="1 1 1" position="0 -10 0" raycaster="objects: .interactable" clickhandler ></a-entity>
+    <a-entity gltf-model="./assets/can-soup.glb" gps-new-entity-place="latitude: 19.172699810980035; longitude: 73.02243661878039" scale="1 1 1" position="0 0 0" raycaster="objects: .interactable" clickhandler ></a-entity>
 </a-scene>
+     <script>
+    AFRAME.registerComponent("clickhandler", {
+      init: function () {
+        var el = this.el;
+        var intersectedElement;
+
+        el.addEventListener("raycaster-intersection", function (event) {
+          // Get the first intersected element
+          intersectedElement = event.detail.els[0];
+        });
+
+        el.addEventListener("raycaster-intersection-cleared", function () {
+          // Clear the intersected element when no longer intersected
+          intersectedElement = null;
+        });
+
+        el.addEventListener("touchend", function () {
+          if (intersectedElement) {
+            // Perform actions when the model is clicked (touched)
+            console.log("Model clicked!");
+            // You can perform additional actions here
+            // For example, show a pop-up, spawn objects, etc.
+            intersectedElement.setAttribute("visible", false);
+          }
+        });
+      },
+    });
+  </script>
 </body>
 </html>
