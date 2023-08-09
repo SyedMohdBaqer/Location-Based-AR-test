@@ -9,12 +9,10 @@
 <body>
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
   <a-assets>
-    <video id="penguin" autoplay loop="true" src="./assets/video.mp4"></video>
     <a-asset-item id="tokyo" src="./assets/tokyo.glb"></a-asset-item>
   </a-assets>
     <a-camera gps-new-camera='far: 10; gpsMinDistance: 5 ' ></a-camera>
-    <a-entity  gltf-model="#tokyo" scale="1 1 1" position = "0 -10 0" gps-new-entity-place="latitude: 19.173056 ; longitude: 73.023265"></a-entity>
-    <a-video src="#penguin" gps-new-entity-place="latitude: 19.172817 ; longitude: 73.022492" width="16" height="9"></a-video>
+    <a-entity  gltf-model="#tokyo" scale="1 1 1" position = "0 -10 0" gps-new-entity-place="latitude: 19.172817 ; longitude: 73.022492"></a-entity>
 </a-scene>
 </body>
 </html>
