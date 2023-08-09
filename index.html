@@ -8,8 +8,8 @@
 </head>
 <body>
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
-    <a-camera gps-camera='gpsMinDistance: 5 ; maxDistance: 10' ></a-camera>
-    <a-entity  gltf-model="./assets/can-soup.glb" scale="1 1 1" position = "0 -10 0" gps-entity-place="latitude: 19.173056 ; longitude: 73.023265"></a-entity>
+    <a-camera gps-new-camera='far: 10; gpsMinDistance: 5 ' ></a-camera>
+    <a-entity  gltf-model="./assets/can-soup.glb" scale="1 1 1" position = "0 -10 0" gps-new-entity-place="latitude: 19.173056 ; longitude: 73.023265"></a-entity>
 </a-scene>
 </body>
 </html>
