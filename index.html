@@ -10,6 +10,9 @@
 <a-scene vr-mode-ui='enabled: false' arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false' renderer='antialias: true; alpha: true'>
     <a-camera gps-new-camera='far: 10; gpsMinDistance: 5 ' ></a-camera>
     <a-entity  gltf-model="./assets/can-soup.glb" scale="1 1 1" position = "0 -10 0" gps-new-entity-place="latitude: 19.173056 ; longitude: 73.023265"></a-entity>
+    <a-plane id="videoPlane" gps-new-entity-place="latitude: 19.172817 ; longitude: 73.022492" width="4" height="3">
+      <video id="video" src="./assets/video.mp4" autoplay loop muted></video>
+    </a-plane>
 </a-scene>
 </body>
 </html>
