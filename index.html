@@ -13,10 +13,10 @@
   <a-assets>
     <a-asset-item id="tokyo" src="./assets/V8installationV-v1.glb"></a-asset-item>
   </a-assets>
-    <a-camera gps-new-camera='far: 10; gpsMinDistance: 5 ' ></a-camera>
+    <a-camera gps-new-camera='gpsMinDistance: 1' ></a-camera>
     <a-light type="ambient" intensity="1"></a-light>
-
-    <a-entity  gltf-model="./assets/V8installationV-v1.glb" scale="8 8 8" animation-mixer position = "0 -10 0" rotation ="0 -180 0" gps-new-entity-place="latitude: 19.172817 ; longitude: 73.022492"></a-entity>
+ <a-entity light="type: directional; intensity: 0.6;" position="1 4.3 2.5"> </a-entity>
+    <a-entity  gltf-model="./assets/V8installationV-v1.glb" scale="8 8 8" animation-mixer position = "0 -20 0" rotation ="0 -180 0" gps-new-entity-place="latitude: 19.172817 ; longitude: 73.022492"></a-entity>
 </a-scene>
 </body>
 </html>
