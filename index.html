@@ -14,11 +14,11 @@
     <a-asset-item id="tokyo" src="./assets/V8installationV-v1.glb"></a-asset-item>
     <audio id="sound" src="./assets/Water.mp3" preload="auto"></audio>
   </a-assets>
-    <a-camera gps-new-camera='gpsMinDistance: 1' ></a-camera>
+    <a-camera gps-camera='gpsMinDistance: 5 minDistance:3' rotation-reader></a-camera>
     <a-light type="ambient" intensity="1"></a-light>
           <a-sound src= "#sound" autoplay="true"></a-sound>
  <a-entity light="type: directional; intensity: 1;" position="1 4.3 2.5"> </a-entity>
-    <a-entity  gltf-model="./assets/V8installationV-v1.glb" scale="4 4 4" animation-mixer position = "0 -8 0" rotation ="0 -180 0" gps-new-entity-place="latitude: 40.5249896 ; longitude: -74.3923401"></a-entity>
+    <a-entity  gltf-model="./assets/V8installationV-v1.glb" scale="4 4 4" animation-mixer position = "0 -8 0" rotation ="0 -180 0" gps-entity-place="latitude: 40.5249896 ; longitude: -74.3923401"></a-entity>
 </a-scene>
 </body>
 </html>
