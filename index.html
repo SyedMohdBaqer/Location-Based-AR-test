@@ -18,7 +18,20 @@
     <a-light type="ambient" intensity="1"></a-light>
           <a-sound src= "#sound" autoplay="true"></a-sound>
  <a-entity light="type: directional; intensity: 1;" position="1 4.3 2.5"> </a-entity>
-    <a-entity  gltf-model="./assets/V8installationV-v1.glb" scale="8 8 8" animation-mixer position = "0 -8 0" rotation ="0 -225 0" gps-entity-place="latitude: 40.524990; longitude: -74.392512"></a-entity>
+    <a-entity
+    light="
+      type: directional;
+      intensity: 0.8;
+      castShadow: true;
+      shadowMapHeight:2048;
+      shadowMapWidth:2048;
+      shadowCameraTop: 10;
+      target: #model;
+      shadowRadius: 12"
+    xrextras-attach="target: model; offset: 1 15 3;"
+    shadow>
+  </a-entity>
+    <a-entity id ="model" gltf-model="./assets/V8installationV-v1.glb" scale="8 8 8" animation-mixer position = "0 -8 0" rotation ="0 -225 0" gps-entity-place="latitude: 40.524990; longitude: -74.392512"></a-entity>
 </a-scene>
 </body>
 </html>
