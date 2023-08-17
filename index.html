@@ -64,10 +64,9 @@
                     const cameraPosition = camera.object3D.getWorldPosition(new THREE.Vector3());
                     const position = cameraPosition.clone().add(new THREE.Vector3(0, -1, -3)); // 2 unit in front
                     placedModel.object3D.position.copy(position);
-                    placedModel.setAttribute('visible', 'true');   
                 this.el.addEventListener('click', e => {
                     alert('Box clicked!');
-                    placedModel.setAttribute('visible', 'false');   
+                    placedModel.setAttribute('visible', 'true');   
                 });
             }
         });
