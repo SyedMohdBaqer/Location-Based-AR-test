@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!---<!DOCTYPE html>
 <html>
 <head>
 <title>AR.js A-Frame Location-based</title>
@@ -14,7 +14,7 @@
     <a-asset-item id="tokyo" src="./assets/V8installationV-v1.glb"></a-asset-item>
     <audio id="sound" src="./assets/Water.mp3" preload="auto"></audio>
   </a-assets>
-    <a-camera gps-camera='simulateLatitude: 40.524986; simulateLongitude: -74.392430; minDistance:3;' rotation-reader></a-camera>
+    <a-camera gps-camera='minDistance:3;' rotation-reader></a-camera>
     <a-light type="ambient" intensity="1"></a-light>
           <a-sound src= "#sound" autoplay="true"></a-sound>
  <a-entity light="type: directional; intensity: 1;" position="1 4.3 2.5"> </a-entity>
@@ -35,8 +35,8 @@
 </a-scene>
 </body>
 </html>
-
-<!---<!DOCTYPE html>
+-->
+<!DOCTYPE html>
 <html> 
     <head>
         <title>AR.js Click Places Example</title>
@@ -45,9 +45,26 @@
         <script>
         AFRAME.registerComponent('clicker', {
             init: function() {
+
+                let modelPlaced = false;
+        
+                function placeModel() {
+                if (!modelPlaced) {
+                const placedModel = document.getElementById('placedModel');
+                const camera = document.querySelector('[camera]');
+                const cameraPosition = camera.object3D.getWorldPosition(new THREE.Vector3());
+                const position = cameraPosition.clone().add(new THREE.Vector3(0, 0, -1)); // 1 unit in front
+                placedModel.object3D.position.copy(position);
+                placedModel.setAttribute('visible', 'true');
+                modelPlaced = true;
+                }
+                }
+                
+                const placeButton = document.getElementById('placeButton');
+                this.el.addEventListener('click', placeModel);
+                      
                 this.el.addEventListener('click', e => {
                     alert('Box clicked!');
-                  document.getElementById("box").style.display = "none";
 
                 });
             }
@@ -61,10 +78,14 @@
         raycaster='near: 0; far: 50000'
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
+      <a-assets>
+        <a-asset-item id="tokyo" src="./assets/can-soup.glb"></a-asset-item>
+      </a-assets>
             <a-camera gps-projected-camera='simulateLatitude: 51.049; simulateLongitude: -0.723' rotation-reader></a-camera>
-            <a-box id ="box" gps-projected-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
+            <a-box id ="placeButton" gps-projected-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
+            <a-entity id ="placedModel" gltf-model ="#tokyo" scale = "30 30 30" visible = "false"></a-entity>
     </a-scene>
     </body>
 </html>
--->
+
 
