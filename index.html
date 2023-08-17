@@ -13,7 +13,7 @@
                     const placedModel = document.getElementById('placedModel');
                     const camera = document.querySelector('[camera]');
                     const cameraPosition = camera.object3D.getWorldPosition(new THREE.Vector3());
-                    const position = cameraPosition.clone().add(new THREE.Vector3(0, -3, -2)); // 2 unit in front
+                    const position = cameraPosition.clone().add(new THREE.Vector3(0, -1, -4)); // 2 unit in front
                     placedModel.object3D.position.copy(position);
                     placedModel.setAttribute('visible', 'true');   
                 this.el.addEventListener('click', e => {
