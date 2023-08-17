@@ -45,23 +45,12 @@
         <script>
         AFRAME.registerComponent('clicker', {
             init: function() {
-
-                let modelPlaced = false;
-        
-                function placeModel() {
-                if (!modelPlaced) {
                 const placedModel = document.getElementById('placedModel');
                 const camera = document.querySelector('[camera]');
                 const cameraPosition = camera.object3D.getWorldPosition(new THREE.Vector3());
                 const position = cameraPosition.clone().add(new THREE.Vector3(0, 0, -1)); // 1 unit in front
                 placedModel.object3D.position.copy(position);
-                placedModel.setAttribute('visible', 'true');
-                modelPlaced = true;
-                }
-                }
-                
-                const placeButton = document.getElementById('placeButton');
-                this.el.addEventListener('click', placeModel);
+                placedModel.setAttribute('visible', 'true');                
                       
                 this.el.addEventListener('click', e => {
                     alert('Box clicked!');
