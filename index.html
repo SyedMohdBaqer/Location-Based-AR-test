@@ -80,8 +80,8 @@
         raycaster='near: 0; far: 50000'
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
-            <a-camera gps-new-camera='gpsMinDistance:0; simulateLatitude: 51.049; simulateLongitude: -0.723' rotation-reader></a-camera>
-            <a-box gps-new-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
+            <a-camera gps-camera='gpsMinDistance:0; simulateLatitude: 51.049; simulateLongitude: -0.723' rotation-reader></a-camera>
+            <a-box gps-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
             <a-entity id ="placedModel" gltf-model ="./assets/can-soup.glb" scale = "0.3 0.3 0.3" visible = "false"></a-entity>
     </a-scene>
     </body>
