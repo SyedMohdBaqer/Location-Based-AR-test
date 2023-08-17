@@ -48,6 +48,8 @@
             init: function() {
                 this.el.addEventListener('click', e => {
                     alert('Box clicked!');
+                  document.getElementById("box").style.display = "none";
+
                 });
             }
         });
@@ -61,7 +63,7 @@
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
             <a-camera gps-projected-camera='simulateLatitude: 51.049; simulateLongitude: -0.723' rotation-reader></a-camera>
-            <a-box gps-projected-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
+            <a-box id ="box" gps-projected-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
     </a-scene>
     </body>
 </html>
