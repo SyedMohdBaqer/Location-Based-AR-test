@@ -66,14 +66,9 @@
         raycaster='near: 0; far: 50000'
         arjs='sourceType: webcam; videoTexture: true; debugUIEnabled: false;'
         renderer='antialias: true; alpha: true'>
-      <a-assets>
-        <a-asset-item id="tokyo" src="./assets/can-soup.glb"></a-asset-item>
-      </a-assets>
             <a-camera gps-projected-camera='simulateLatitude: 51.049; simulateLongitude: -0.723' rotation-reader></a-camera>
-            <a-box id ="placeButton" gps-projected-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
-            <a-entity id ="placedModel" gltf-model ="#tokyo" scale = "5 5 5" visible = "false"></a-entity>
-            <a-box position ='0 1 -1' color='green' scale='200 200 200'></a-box>
-
+            <a-box gps-projected-entity-place='latitude: 51.0596; longitude: -0.7170' color='red' scale='200 200 200' clicker></a-box>
+            <a-entity id ="placedModel" gltf-model ="./assets/can-soup.glb" scale = "5 5 5" visible = "false"></a-entity>
     </a-scene>
     </body>
 </html>
