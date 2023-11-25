@@ -255,7 +255,7 @@ h2 {
         </script>
     </head>
 
-    <body>
+    <body style="margin : 0px; overflow: hidden;">
         <div id="splashimage">
             <div id="start" style="display: none">
               <h2></h2>
@@ -286,7 +286,8 @@ h2 {
         splash-image
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
-            arjs="sourceType: webcam; debugUIEnabled: false"
+            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
+            
             id="scene"
         >
             <a-assets>
