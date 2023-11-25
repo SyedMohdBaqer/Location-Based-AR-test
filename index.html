@@ -1,6 +1,183 @@
 <!doctype html>
 <html>
     <head>
+        <style>
+          .hidden {
+  display: none !important;
+}
+
+#splashimage {
+  z-index: 998;
+  height: 100%;
+  background-image: url('assets/Splash.jpg');
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#aboutpage {
+  z-index: 997;
+  height: 100%;
+  background-image: url('assets/About.jpg');
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#start {
+  /*z-index: 999;*/
+  width: 38vw;
+  height: 27vh;
+  position: absolute;
+  bottom: 7vh;
+  left: 30vw;
+  background-color: #e28743;
+  border: 0.2em solid white;
+  text-align: center;
+  color: #fff;
+  border-radius: 100px;
+}
+
+#aboutback {
+  /*z-index: 999;*/
+  width: 38vw;
+  height: 14vh;
+  position: absolute;
+  bottom: 4vh;
+  left: 30vw;
+  background-color: #e28743;
+  border: 0.2em solid white;
+  text-align: center;
+  color: #fff;
+  border-radius: 100px;
+}
+
+#about {
+  /*z-index: 999;*/
+  width: 19vw;
+  height: 27vh;
+  position: absolute;
+  bottom: 7vh;
+  left: 5vw;
+  background-color: red;
+  border: 0.2em solid white;
+  text-align: center;
+  color: #fff;
+  border-radius: 100px;
+}
+
+#help {
+  /*z-index: 999;*/
+  width: 19vw;
+  height: 27vh;
+  position: absolute;
+  bottom: 7vh;
+  right: 5vw;
+  background-color: #e28743;
+  border: 0.2em solid white;
+  text-align: center;
+  color: #fff;
+  border-radius: 100px;
+}
+
+h2 {
+  font-size: 1.4em;
+  text-align: center;
+  font-family: monospace;
+  color: #fff;
+  z-index: 5;
+  pointer-events: auto;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 300px;
+  filter: drop-shadow(5px 5px 5px #000);
+  animation: fadeinout 2s infinite;
+}
+
+#scan {
+  z-index: 5;
+  pointer-events: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 300px;
+  filter: drop-shadow(5px 5px 5px #fff);
+  animation: fadeinout 2s infinite;
+  animation-delay: 1s;
+}
+
+#mainback {
+  z-index: 5;
+  pointer-events: auto;
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60px;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+#home {
+  z-index: 5;
+  pointer-events: auto;
+  position: fixed;
+  top: 3vh;
+  right: 3vw;
+  max-width: 50px;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+#pause {
+  z-index: 5;
+  pointer-events: auto;
+  position: fixed;
+  top: 90%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  max-width: 60px;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+#replay {
+  z-index: 5;
+  pointer-events: auto;
+  position: fixed;
+  top: 90%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  max-width: 60px;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+#web {
+  z-index: 5;
+  pointer-events: auto;
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 60px;
+  filter: drop-shadow(5px 5px 5px #000);
+}
+
+@keyframes fadeinout {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+          </style>
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
@@ -22,11 +199,88 @@
                     }.bind(this));
                 },
             });
+
+            AFRAME.registerComponent('splash-image', {
+  init: function init() {
+    var splashimage = document.getElementById('splashimage');
+    var start = document.getElementById('start');
+    var about = document.getElementById('about');
+    var help = document.getElementById('help');
+    var back = document.getElementById('aboutback');
+    var home = document.getElementById('home');
+    var pause = document.getElementById('pause');
+    var replay = document.getElementById('replay');
+    var web = document.getElementById('web');
+    var aboutpage = document.getElementById('aboutpage');
+    var mainback = document.getElementById('mainback');
+    start.style.display = 'block';
+    about.style.display = 'block';
+    help.style.display = 'block';
+    aboutpage.classList.add('hidden');
+    back.style.display = 'block';
+    home.style.display = 'block';
+    pause.style.display = 'block';
+    replay.style.display = 'block';
+    web.style.display = 'block';
+    var addXRWeb = function addXRWeb() {
+      splashimage.classList.add('hidden');
+      aboutpage.classList.add('hidden');
+      document.getElementById('scan').setAttribute('style', 'display:block');
+      document.getElementById('text').setAttribute('style', 'display:block');
+      document.getElementById('mainback').setAttribute('style', 'display:block');
+    };
+    var openAbout = function openAbout() {
+      aboutpage.classList.remove('hidden');
+      splashimage.classList.add('hidden');
+    };
+    var goBack = function goBack() {
+      // aboutpage.style.display = 'block'
+      splashimage.classList.remove('hidden');
+    };
+    var openWeb = function openWeb() {
+      window.open('https://www.google.com', '_blank');
+    };
+    start.onclick = addXRWeb;
+    about.onclick = openAbout;
+    help.onclick = addXRWeb;
+    back.onclick = goBack;
+    mainback.onclick = goBack;
+    home.onclick = goBack;
+    web.onclick = openWeb;
+  }
+});
         </script>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+        <div id="splashimage">
+            <div id="start" style="display: none">
+              <h2></h2>
+            </div>
+            <div id="about" style="display: none">
+              <h2></h2>
+            </div>
+            <div id="help" style="display: none">
+              <h2></h2>
+            </div>
+          </div>
+          
+          <div id="aboutpage">
+            <div id="aboutback" style="display: none">
+              <h2></h2>
+            </div>
+          </div>
+          <img id="scan" src="assets/scan.png" style="display: none" />
+          <h2 id="text" style="display: none">Scan an Article!</h2>
+          <img id="mainback" src="assets/back.png" style="display: none" />
+          <img id="home" src="assets/home.png" style="display: none" />
+          <img id="pause" src="assets/pause.png" style="display: none" />
+          <img id="replay" src="assets/replay.png" style="display: none" />
+          <img id="web" src="assets/web.png" style="display: none" />
+
+
         <a-scene
+        splash-image
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
             arjs='sourceType: webcam; debugUIEnabled: false;'
