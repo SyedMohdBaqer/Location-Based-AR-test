@@ -286,11 +286,10 @@ h2 {
         splash-image
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
-            arjs="sourceType: webcam; debugUIEnabled: false"
+            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
+            renderer="antialias: true; alpha: true"
             id="scene"
             gesture-detector
-            embedded
-            renderer="antialias: true; alpha: true"
         >
             <a-assets>
                 <video
