@@ -1,8 +1,6 @@
 <!doctype html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
         <style>
           .hidden {
   display: none !important;
@@ -11,7 +9,6 @@
 #splashimage {
   z-index: 998;
   height: 100%;
-    max-width:100%;
   background-image: url('assets/Splash.jpg');
   position: relative;
   background-position: center;
@@ -286,9 +283,9 @@ h2 {
         splash-image
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
-            arjs='sourceType: webcam; debugUIEnabled: false;'
+            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
+            renderer="antialias: true; alpha: true"
             id="scene"
-            embedded
             gesture-detector
         >
             <a-assets>
