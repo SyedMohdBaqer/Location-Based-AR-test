@@ -33,10 +33,7 @@
   position: absolute;
   bottom: 7vh;
   left: 30vw;
-  background-color: #e28743;
-  border: 0.2em solid white;
   text-align: center;
-  color: #fff;
   border-radius: 100px;
 }
 
@@ -47,10 +44,7 @@
   position: absolute;
   bottom: 4vh;
   left: 30vw;
-  background-color: #e28743;
-  border: 0.2em solid white;
   text-align: center;
-  color: #fff;
   border-radius: 100px;
 }
 
@@ -61,10 +55,7 @@
   position: absolute;
   bottom: 7vh;
   left: 5vw;
-  background-color: red;
-  border: 0.2em solid white;
   text-align: center;
-  color: #fff;
   border-radius: 100px;
 }
 
@@ -75,10 +66,7 @@
   position: absolute;
   bottom: 7vh;
   right: 5vw;
-  background-color: #e28743;
-  border: 0.2em solid white;
   text-align: center;
-  color: #fff;
   border-radius: 100px;
 }
 
@@ -191,11 +179,26 @@ h2 {
                     marker.addEventListener('markerFound', function () {
                         this.toggle = true;
                         this.vid.play();
+                        document.getElementById("text").style.display="none";
+                        document.getElementById("scan").style.display="none";
+                        document.getElementById("mainback").style.display="none";
+                        document.getElementById("home").style.display="block";
+                        document.getElementById("pause").style.display="block";
+                        document.getElementById("replay").style.display="block";
+                        document.getElementById("web").style.display="block";
+
                     }.bind(this));
 
                     marker.addEventListener('markerLost', function () {
                         this.toggle = false;
                         this.vid.pause();
+                        document.getElementById("text").style.display="block";
+                        document.getElementById("scan").style.display="block";
+                        document.getElementById("mainback").style.display="block";
+                        document.getElementById("home").style.display="none";
+                        document.getElementById("pause").style.display="none";
+                        document.getElementById("replay").style.display="none";
+                        document.getElementById("web").style.display="none";
                     }.bind(this));
                 },
             });
@@ -218,10 +221,10 @@ h2 {
     help.style.display = 'block';
     aboutpage.classList.add('hidden');
     back.style.display = 'block';
-    home.style.display = 'block';
-    pause.style.display = 'block';
-    replay.style.display = 'block';
-    web.style.display = 'block';
+    //home.style.display = 'block';
+    //pause.style.display = 'block';
+    //replay.style.display = 'block';
+    //web.style.display = 'block';
     var addXRWeb = function addXRWeb() {
       splashimage.classList.add('hidden');
       aboutpage.classList.add('hidden');
