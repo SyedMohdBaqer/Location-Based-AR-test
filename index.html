@@ -7,7 +7,7 @@
 }
 
 #splashimage {
-  z-index: 998;
+  /*z-index: 998;*/
   height: 100%;
   background-image: url('assets/Splash.jpg');
   position: relative;
@@ -286,7 +286,7 @@ h2 {
         splash-image
             vr-mode-ui="enabled: false"
             loading-screen="enabled: false;"
-            arjs="sourceType: webcam; debugUIEnabled: false"
+            arjs="sourceType: webcam; videoTexture: true; debugUIEnabled: false"
             id="scene"
             gesture-detector
             embedded
